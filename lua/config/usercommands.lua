@@ -20,3 +20,15 @@ vim.api.nvim_create_user_command('ClearReg', function()
         endfor
         ]])
 end, {})
+
+-- highlight on yank
+-- see :help vim.highlight.on_yank()
+
+local highlight_group = vim.api.nvim_create_augroup('YankHighLight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})

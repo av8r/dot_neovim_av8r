@@ -3,6 +3,10 @@
 -- uv tool install --upgrade pynvim
 -- npm install -g neovim
 
+-- Force Neovim and all subprocesses (LSPs) to use English
+vim.env.LANG = "en_US.UTF-8"
+vim.env.LC_ALL = "en_US.UTF-8"
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = 'https://github.com/folke/lazy.nvim.git'

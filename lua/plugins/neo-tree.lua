@@ -55,8 +55,7 @@ return {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
         'MunifTanjim/nui.nvim',
-        '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
-
+        -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     opts = {
         close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -65,7 +64,7 @@ return {
         -- KO popup_border_style = 'winborder',
         enable_git_status = true,
         enable_diagnostics = true,
-        open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
+        open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' }, -- when opening files, do not use windows containing these filetypes or buftypes
         open_files_using_relative_paths = false,
         sort_case_insensitive = false, -- used when sorting files and directories in the tree
         sort_function = nil, -- use a custom function for sorting files and directories in the tree
@@ -76,7 +75,7 @@ return {
         --           return a.type > b.type
         --       end
         --   end , -- this sorts files and directories descendantly
-        
+
         default_component_configs = {
             container = {
                 enable_character_fade = true,
@@ -86,14 +85,14 @@ return {
                 padding = 1, -- extra padding on left hand side
                 -- indent guides
                 with_markers = true,
-                indent_marker = "│",
-                last_indent_marker = "└",
-                highlight = "NeoTreeIndentMarker",
+                indent_marker = '│',
+                last_indent_marker = '└',
+                highlight = 'NeoTreeIndentMarker',
                 -- expander config, needed for nesting files
                 with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-                expander_collapsed = "",
-                expander_expanded = "",
-                expander_highlight = "NeoTreeExpander",
+                expander_collapsed = '',
+                expander_expanded = '',
+                expander_highlight = 'NeoTreeExpander',
             },
             -- icon = {
             --     folder_closed = '',
@@ -101,14 +100,14 @@ return {
             --     folder_empty = '',
             -- },
             icon = {
-                folder_closed = "",
-                folder_open = "",
+                folder_closed = '',
+                folder_open = '',
                 -- folder_empty = "󰜌",
                 folder_empty = '',
                 provider = function(icon, node, state) -- default icon provider utilizes nvim-web-devicons if available
-                    if node.type == "file" or node.type == "terminal" then
-                        local success, web_devicons = pcall(require, "nvim-web-devicons")
-                        local name = node.type == "terminal" and "terminal" or node.name
+                    if node.type == 'file' or node.type == 'terminal' then
+                        local success, web_devicons = pcall(require, 'nvim-web-devicons')
+                        local name = node.type == 'terminal' and 'terminal' or node.name
                         if success then
                             local devicon, hl = web_devicons.get_icon(name)
                             icon.text = devicon or icon.text
@@ -118,31 +117,31 @@ return {
                 end,
                 -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
                 -- then these will never be used.
-                default = "*",
-                highlight = "NeoTreeFileIcon",
+                default = '*',
+                highlight = 'NeoTreeFileIcon',
             },
             modified = {
-                symbol = "[+]",
-                highlight = "NeoTreeModified",
+                symbol = '[+]',
+                highlight = 'NeoTreeModified',
             },
             name = {
                 trailing_slash = false,
                 use_git_status_colors = true,
-                highlight = "NeoTreeFileName",
+                highlight = 'NeoTreeFileName',
             },
             git_status = {
                 symbols = {
                     -- Change type
-                    added = "", -- or "✚"
-                    modified = "", -- or ""
-                    deleted = "✖", -- this can only be used in the git_status source
-                    renamed = "󰁕", -- this can only be used in the git_status source
+                    added = '', -- or "✚"
+                    modified = '', -- or ""
+                    deleted = '✖', -- this can only be used in the git_status source
+                    renamed = '󰁕', -- this can only be used in the git_status source
                     -- Status type
-                    untracked = "",
-                    ignored = "",
-                    unstaged = "󰄱",
-                    staged = "",
-                    conflict = "",
+                    untracked = '',
+                    ignored = '',
+                    unstaged = '󰄱',
+                    staged = '',
+                    conflict = '',
                 },
             },
             -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
@@ -221,7 +220,16 @@ return {
                 end,
                 ['O'] = { 'show_help', nowait = false, config = { title = 'Order by', prefix_key = 'o' } },
                 ['o'] = 'open',
-                ['<leader>p'] = 'image_wezterm',
+                --  ['<leader>p'] = 'image_wezterm',
+                ['P'] = {
+                    'toggle_preview',
+                    config = {
+                        use_float = false,
+                        use_image_nvim = false,
+                        use_snacks_image = true,
+                        title = 'Neo-tree Preview',
+                    },
+                },
             },
         },
         filesystem = {
@@ -246,5 +254,10 @@ return {
                 end,
             },
         },
+    },
+
+    source_selector = {
+        winbar = true,
+        statusline = false,
     },
 }
