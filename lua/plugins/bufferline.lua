@@ -6,10 +6,11 @@ return {
     version = '*',
     config = function()
         require('bufferline').setup({
+
             options = {
                 indicator = {
                     -- icon = '▎',
-                    style = 'underline', -- 'icon' | 'underline' | 'none'
+                    style = 'icon', -- 'icon' | 'underline' | 'none'
                 },
                 tab_size = 20,
                 diagnostics = 'nvim_lsp',
@@ -20,13 +21,15 @@ return {
                     return vim.trim(ret)
                 end,
                 ---@type 'thin' | 'thick' | 'slant' | 'padded_slant' | 'slope' | 'padded_slope'
-                separator_style = 'thin',
+                -- separator_style = 'thin',
+                separator_style = 'slope',
                 -- separator_style = 'slant',
                 -- offsets = { { filetype = 'NvimTree', text = '', padding = 1 } },
                 offsets = {
                     {
                         filetype = 'neo-tree',
                         text = 'File Explorer',
+                        -- text = vim.fn.fnamemodify(vim.fn.getcwd(), ':t'),
                         separator = true,
                         text_align = 'left',
                     },

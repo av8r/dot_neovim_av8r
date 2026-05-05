@@ -23,7 +23,8 @@ return {
             center = {
                 { action = 'Telescope find_files', desc = ' Find file', icon = ' ', key = 'f' },
                 { action = 'enew | startinsert', desc = ' New file', icon = '󰝒 ', key = 'n' },
-                { action = 'Telescope file_browser', desc = ' File explorer', icon = ' ', key = 'e' },
+                -- { action = 'Telescope file_browser', desc = ' File explorer', icon = ' ', key = 'e' },
+                { action = 'Neotree toggle', desc = ' File explorer', icon = ' ', key = 'e' },
                 { action = 'Telescope live_grep', desc = ' Find text', icon = ' ', key = 't' },
                 { action = 'Neogit', desc = ' Git', icon = ' ', key = 'g' },
                 { action = 'Telescope oldfiles', desc = ' Recent files', icon = ' ', key = 'r' },

@@ -4,8 +4,8 @@
 -- npm install -g neovim
 
 -- Force Neovim and all subprocesses (LSPs) to use English
-vim.env.LANG = "en_US.UTF-8"
-vim.env.LC_ALL = "en_US.UTF-8"
+vim.env.LANG = 'en_US.UTF-8'
+vim.env.LC_ALL = 'en_US.UTF-8'
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -28,6 +28,7 @@ vim.g.maplocalleader = ','
 
 require('config.options')
 require('config.keymaps')
+require('config.se_vimrc')
 require('config.autocommands')
 require('config.usercommands')
 
@@ -48,4 +49,13 @@ require('lazy').setup({ import = 'plugins' }, opts)
 require('utils.init')
 require('config.cursor')
 
---  open at startup -- vim.cmd("Neotree show")
+--  open at startu
+-- if vim.fn.argc() == 0 then
+--     vim.defer_fn(function()
+--         require('neo-tree.command').execute({
+--             toggle = true,
+--             source = 'filesystem',
+--             position = 'left',
+--         })
+--     end, 0)
+-- end
