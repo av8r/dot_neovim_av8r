@@ -1,6 +1,8 @@
 return {
     {
         'ntpeters/vim-better-whitespace',
+        lazy = true,
+        priority = 999,
         config = function()
             -- Highlight whitespace by default
             vim.g.better_whitespace_enabled = 1
@@ -12,8 +14,10 @@ return {
             -- Don't show whitespace in certain file types (like binaries or help)
             -- ft_ignore = { 'neo-tree', 'NvimTree', 'dapui' },
             -- bt_ignore = { 'terminal', 'nofile', 'dapui' },
+            -- : set ft?
             vim.g.better_whitespace_filetypes_blacklist = {
-                'dashboard',
+                'snacks_dashboard',
+                --  'dashboard',
                 'diff',
                 'git',
                 'gitcommit',

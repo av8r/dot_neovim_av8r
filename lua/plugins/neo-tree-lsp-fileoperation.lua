@@ -1,6 +1,7 @@
 return {
     {
         'antosha417/nvim-lsp-file-operations',
+        priority = 40, -- less than 50 default // after neo-tree
         dependencies = {
             'nvim-lua/plenary.nvim',
             -- Uncomment whichever supported plugin(s) you use
