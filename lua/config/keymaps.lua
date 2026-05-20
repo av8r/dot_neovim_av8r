@@ -156,6 +156,9 @@ vim.keymap.set('n', 'z.', '1z=', { desc = '󰓆 Fix Spelling' })
 --         end)
 --     )
 -- end, { desc = 'Spelling suggestions' })
+-- vim.keymap.set("n", "<leader>s", function()
+--   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
+-- end, { desc = "Suggestions d'Orthographe" })
 
 -- Messages
 -- vim.keymap.set('n', '<leader>mm', '<cmd>messages<cr>', { desc = 'Messages' })

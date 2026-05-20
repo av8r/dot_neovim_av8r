@@ -1,0 +1,18 @@
+--- https://github.com/automattic/harper
+---
+--- The language server for Harper, the slim, clean language checker for developers.
+---
+--- See our [documentation](https://writewithharper.com/docs/integrations/neovim) for more information on settings.
+vim.lsp.config('harper_ls', {
+    settings = {
+        args = { '--stdio' },
+        ['harper-ls'] = {
+            userDictPath = '~/dict.txt',
+        },
+    },
+})
+
+-- vim.lsp.config['harper'] = {
+--   cmd = { 'harper-ls', '--stdio' },
+--    filetypes = { 'markdown', 'text', 'tex', 'typst' }
+-- }
